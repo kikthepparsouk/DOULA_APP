@@ -1,9 +1,6 @@
+import 'package:doula/const/resource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
-
-
 
 class OnboardingPageOne extends StatelessWidget {
   const OnboardingPageOne({super.key});
@@ -11,21 +8,14 @@ class OnboardingPageOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: ScreenUtil().screenWidth,
-        height: ScreenUtil().screenHeight,
-        child: Stack(
-          children: [
-            Image.asset(
-              'assets/images/wishlist.png',
-              fit: BoxFit.cover,
-              width: ScreenUtil().screenWidth,
-              height: ScreenUtil().screenHeight,
-            ),
-           
-           
-          ],
-        ),
+      body: ListView(
+        children: [
+          SizedBox(
+            width: ScreenUtil().screenWidth,
+            height: ScreenUtil().screenHeight-50.h,
+            child: Image.asset(R.ASSETS_IMAGES_WISHLIST_PNG, fit: BoxFit.cover),
+          ),
+        ],
       ),
     );
   }

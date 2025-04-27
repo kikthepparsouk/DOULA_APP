@@ -1,7 +1,11 @@
 import 'package:doula/common/utils/app_routes.dart';
 import 'package:doula/common/utils/environment.dart';
 import 'package:doula/common/utils/kstrings.dart';
+import 'package:doula/src/categories/controllers/category_notifier.dart';
+import 'package:doula/src/entrypoint/controlers/botton_tab_notifier.dart';
+import 'package:doula/src/home/controllers/home_tab_nortifier.dart';
 import 'package:doula/src/onboarding/controllers/onboarding_notifier.dart';
+import 'package:doula/src/products/controllers/product_notifile.dart';
 import 'package:doula/src/splashscreen/views/splashscreen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -21,6 +25,10 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => OnboardingNotifier()),
+        ChangeNotifierProvider(create: (context) => TabIndexNotifier()),
+        ChangeNotifierProvider(create: (context) => CategoryNotifier()),
+        ChangeNotifierProvider(create: (context) => HomeTabNotifier()),
+        ChangeNotifierProvider(create: (context) => ProductNotifier()),
       ],
       child: MyApp(),
     ),

@@ -1,5 +1,12 @@
 
+import 'package:doula/src/auth/views/login_screen.dart';
+import 'package:doula/src/categories/models/categories_model.dart';
+import 'package:doula/src/categories/views/categories_page.dart';
+import 'package:doula/src/categories/views/categories_screen.dart';
+import 'package:doula/src/notifications/views/notification_screen.dart';
 import 'package:doula/src/onboarding/views/onboarding_screen.dart';
+import 'package:doula/src/products/views/product_screen.dart';
+import 'package:doula/src/search/views/search_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:doula/src/entrypoint/views/entrypoint.dart';
 import 'package:doula/src/splashscreen/views/splashscreen_page.dart';
@@ -36,10 +43,10 @@ final GoRouter _router = GoRouter(
     //   path: '/verification',
     //   builder: (context, state) => const VerificationPage(),
     // ),
-    // GoRoute(
-    //   path: '/search',
-    //   builder: (context, state) => const SearchPage(),
-    // ),
+    GoRoute(
+      path: '/search',
+      builder: (context, state) => const SearchScreen(),
+    ),
     // GoRoute(
     //   path: '/help',
     //   builder: (context, state) => const HelpCenterPage(),
@@ -48,22 +55,22 @@ final GoRouter _router = GoRouter(
     //   path: '/orders',
     //   builder: (context, state) => const OrdersPage(),
     // ),
-    // GoRoute(
-    //   path: '/login',
-    //   builder: (context, state) => const LoginPage(),
-    // ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
+    ),
     // GoRoute(
     //   path: '/register',
     //   builder: (context, state) => const RegistrationPage(),
     // ),
-    // GoRoute(
-    //   path: '/categories',
-    //   builder: (context, state) => const CategoriesPage(),
-    // ),
-    //  GoRoute(
-    //   path: '/category',
-    //   builder: (context, state) => const CategoryPage(),
-    // ),
+    GoRoute(
+      path: '/categories',
+      builder: (context, state) => const CategoriesScreen(),
+    ),
+     GoRoute(
+      path: '/category',
+      builder: (context, state) => const CategoriesPage(),
+    ),
 
     // GoRoute(
     //   path: '/addaddress',
@@ -75,10 +82,10 @@ final GoRouter _router = GoRouter(
     //   builder: (context, state) => const AddressesListPage(),
     // ),
 
-    //  GoRoute(
-    //   path: '/notifications',
-    //   builder: (context, state) => const NotificationPage(),
-    // ),
+     GoRoute(
+      path: '/notifications',
+      builder: (context, state) => const NotificationScreen(),
+    ),
 
     //  GoRoute(
     //   path: '/tracking',
@@ -100,13 +107,13 @@ final GoRouter _router = GoRouter(
     //   builder: (context, state) => const FailedPayment(),
     // ),
 
-    // GoRoute(
-    //   path: '/product/:id',
-    //   builder: (BuildContext context, GoRouterState state) {
-    //     final productId = state.pathParameters['id'];
-    //     return ProductPage(productId: productId.toString());
-    //   },
-    // ),
+    GoRoute(
+      path: '/product/:id',
+      builder: (BuildContext context, GoRouterState state) {
+        final productId = state.pathParameters['id'];
+        return ProductScreen(productId: productId.toString());
+      },
+    ),
   ],
 );
 

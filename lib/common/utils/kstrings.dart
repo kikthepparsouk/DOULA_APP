@@ -1,5 +1,9 @@
 class AppText {
   static const String kCategory = 'Category';
+  static const String kGetStart = "Let's Get Start";
+  static const String kShopNow = "Shop now";
+  static const String kSeeAll = "See all";
+  
   static const String kAppName = 'DOULA';
   static const String kCategories = 'Categories';
   static const String kNotifications = 'Notifications';
@@ -39,6 +43,7 @@ class AppText {
   static const String kDownload = 'Download E-Reciept';
   static const String kProfile = 'Profile';
   static const String kLogout = 'Logout';
+  static const String klogin = 'Sign In';
   static const String kLogin = 'You are restricted to proceed';
   static const String kCheckoutAddress = 'Change Checkout Address';
   static const String kCheckoutAddressText = 'Click To Select Address ';

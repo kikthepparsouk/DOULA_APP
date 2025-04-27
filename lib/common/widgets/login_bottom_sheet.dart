@@ -25,7 +25,7 @@ Future<dynamic> loginBottomSheet(BuildContext context) {
             Center(
                 child: ReusableText(
                     text: AppText.kLogin,
-                    style: appStyle(16, Kolors.kPrimary, FontWeight.w500))),
+                    style: appStyle(16, Kolors.kDark, FontWeight.w500))),
             SizedBox(
               height: 10.h,
             ),
@@ -45,12 +45,12 @@ Future<dynamic> loginBottomSheet(BuildContext context) {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: GradientBtn(
+              child: CustomButton(
                 text: "Proceed to Login",
                 onTap: () {
                   context.go("/login");
                 },
-                btnHieght: 35.h,
+                btnHieght: 50.h,
                 radius: 16,
                 btnWidth: ScreenUtil().screenWidth ,
               ),

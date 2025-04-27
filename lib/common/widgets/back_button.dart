@@ -19,7 +19,7 @@ class AppBackButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap ?? () => GoRouter.of(context).pop(),
       child: Icon(AntDesign.leftcircle,
-          color: color ?? Kolors.kPrimary, size: size ?? 24),
+          color: color ?? Kolors.kRed, size: size ?? 24),
     );
   }
 }

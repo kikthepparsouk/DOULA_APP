@@ -20,6 +20,7 @@ class R {
   static const String ASSETS_IMAGES_EXPERIENCE_PNG =
       'assets/images/experience.png';
 
+
   /// ![preview](file:///Volumes/Transfer/Projects/fashion/assets/images/failed.png)
   static const String ASSETS_IMAGES_FAILED_PNG = 'assets/images/failed.png';
 
@@ -37,4 +38,8 @@ class R {
 
   /// ![preview](file:///Volumes/Transfer/Projects/fashion/assets/images/wishlist.png)
   static const String ASSETS_IMAGES_WISHLIST_PNG = 'assets/images/wishlist.png';
+  
+  /// ![preview](file:///Volumes/Transfer/Projects/fashion/assets/images/experience.png)
+  static const String ASSETS_IMAGES_getstarted_PNG =
+      'assets/images/getstarted.png';
 }

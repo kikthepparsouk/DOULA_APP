@@ -5,8 +5,8 @@ import 'package:doula/common/widgets/reusable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GradientBtn extends StatelessWidget {
-  const GradientBtn({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     this.onTap,
     this.btnWidth,
@@ -31,7 +31,7 @@ class GradientBtn extends StatelessWidget {
         height: btnHieght ?? 25.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius??6),
-          color: btnColor?? Kolors.kPrimaryLight,
+          color: btnColor?? Kolors.kRed,
           border: Border.all(width: 0.5.h, color:borderColor?? Kolors.kWhite),
         ),
         child: Center(

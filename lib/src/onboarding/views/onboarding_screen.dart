@@ -15,14 +15,19 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   late final PageController _pageController;
- 
 
   @override
   void initState() {
-    // TODO: implement initState
-    _pageController = PageController(initialPage: context.read<OnboardingNotifier>().selectedIndex);
-
+    _pageController = PageController(
+      initialPage: context.read<OnboardingNotifier>().selectedIndex,
+    );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -33,56 +38,58 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         foregroundColor: Kolors.kWhite,
         title: const Text('Onboarding Screen'),
       ),
-      body: Stack(
-        children: [
-          PageView.builder(
-            controller: _pageController,
-            physics: const BouncingScrollPhysics(),
-            itemCount: 3,
-            onPageChanged: (index) {
-              Provider.of<OnboardingNotifier>(context, listen: false)
-                  .setSelectedIndex(index);
-            },
-            itemBuilder: (context, index) {
-              switch (index) {
-                case 0:
-                  return const WellcomeScreen();
-                case 1:
-                  return const OnboardingPageOne();
-                case 2:
-                  return const OnboardingPageTwo();
-                default:
-                  return const SizedBox.shrink();
-              }
-            },
-          ),
-          
-          Positioned(
-            bottom: 20,
-            left: 0,
-            right: 0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(3, (index) {
-                return Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color:
-                        Provider.of<OnboardingNotifier>(context).selectedIndex ==
-                                index
+      body: Consumer<OnboardingNotifier>(
+        builder: (context, onboardingNotifier, _) {
+          return Stack(
+            children: [
+              PageView.builder(
+                controller: _pageController,
+                physics: const BouncingScrollPhysics(),
+                itemCount: 3,
+                onPageChanged: (index) {
+                  onboardingNotifier.setSelectedIndex(index);
+                },
+                itemBuilder: (context, index) {
+                  switch (index) {
+                    case 0:
+                      return const WelcomeScreen();
+                    case 1:
+                      return const OnboardingPageOne();
+                    case 2:
+                      return const OnboardingPageTwo();
+                    default:
+                      return const SizedBox.shrink();
+                  }
+                },
+              ),
+              
+              // Page indicator dots
+              Positioned(
+                bottom: 20,
+                left: 0,
+                right: 0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(3, (dotIndex) {
+                    return AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      width: onboardingNotifier.selectedIndex == dotIndex ? 12 : 10,
+                      height: onboardingNotifier.selectedIndex == dotIndex ? 12 : 10,
+                      decoration: BoxDecoration(
+                        color: onboardingNotifier.selectedIndex == dotIndex
                             ? Kolors.kRed
                             : Kolors.kGray,
-                    shape: BoxShape.circle,
-                  ),
-                );
-              }),
-            ),
-          ),
-        ],
-      )
+                        shape: BoxShape.circle,
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
     );
-    
   }
 }
